@@ -2,7 +2,7 @@ package Lab1;
 
 public class Cauliflower extends Flower {
 
-	// the color of the Cauliflower
+	// The color of the Cauliflower
 	private String flowerColor;
 	
 	/**
