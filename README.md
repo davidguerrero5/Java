@@ -1,13 +1,13 @@
 # Java
 
 
-Current:
+## Current ##
 
-IntroCompSci contains all projects from CSI 201 (Introduction to Computer Science)
+IntroCompSci contains all projects from Introduction to Computer Science
 
-DataStructures contains all projects from CSI 213 (Data Structures)
+DataStructures contains all projects from Data Structures
 
-Future:
+## Future (Fall 2017) ##
 
 Object-Oriented Programming (CSI 405)
 
