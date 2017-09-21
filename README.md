@@ -1,13 +1,13 @@
 # Java
 
 
-## Current ##
+## Past ##
 
 IntroCompSci contains all projects from Introduction to Computer Science
 
 DataStructures contains all projects from Data Structures
 
-## Future (Fall 2017) ##
+## Present (Fall 2017) ##
 
 Object-Oriented Programming (CSI 405)
 
