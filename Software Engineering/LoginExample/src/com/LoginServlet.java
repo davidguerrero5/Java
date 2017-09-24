@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		// retrieves values from text fields
 		String username = request.getParameter("Username");
 		String password = request.getParameter("Password");
 		String firstName = request.getParameter("firstName");
@@ -27,11 +28,14 @@ public class LoginServlet extends HttpServlet {
 		String phoneNumber = request.getParameter("phoneNumber");
 		String personalEmail = request.getParameter("personalEmail");
 
+		// allows for admin to log in
 		if (username.equalsIgnoreCase("Admin") && password.equalsIgnoreCase("Admin")) {
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
 			request.setAttribute("Username", username);
 			request.setAttribute("Password", password);
 			rd.forward(request, response);
+
+		// if user is not an admin, they will be signed up
 		} else if (firstName != null) {
 			request.setAttribute("Username", username);
 			request.setAttribute("Password", password);
