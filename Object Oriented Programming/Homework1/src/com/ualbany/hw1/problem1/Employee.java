@@ -4,9 +4,9 @@ package com.ualbany.hw1.problem1;
 
 public class Employee {
 
-	public String firstName;
-	public String lastName;
-	public double monthlySalary;
+	private String firstName;
+	private String lastName;
+	private double monthlySalary;
 
 	public Employee(String fName, String lName, Double mSalary) {
 		firstName = fName;

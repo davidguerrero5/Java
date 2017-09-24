@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.RequestDispatcher;
 
-
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -27,7 +26,6 @@ public class LoginServlet extends HttpServlet {
 		String address = request.getParameter("address");
 		String phoneNumber = request.getParameter("phoneNumber");
 		String personalEmail = request.getParameter("personalEmail");
-		
 
 		if (username.equalsIgnoreCase("Admin") && password.equalsIgnoreCase("Admin")) {
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
@@ -44,8 +42,7 @@ public class LoginServlet extends HttpServlet {
 			request.setAttribute("personalEmail", personalEmail);
 			RequestDispatcher rd = request.getRequestDispatcher("success.jsp");
 			rd.forward(request, response);
-		}
-		 else {
+		} else {
 			response.sendRedirect("error.jsp");
 		}
 

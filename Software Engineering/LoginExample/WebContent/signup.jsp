@@ -22,62 +22,59 @@
 				</div>
 				<div class="panel-body">
 					<form action="LoginServlet" method="post">
-					
-					<div class="form-group">
+
+						<div class="form-group">
 							<label for="exampleInputEmail1">First Name</label> <input
-								type="text" class="form-control" name="firstName"
-								id="firstName" placeholder="Enter First Name"
-								required="required">
+								type="text" class="form-control" name="firstName" id="firstName"
+								placeholder="Enter First Name" required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputEmail1">Last Name</label> <input
-								type="text" class="form-control" name="lastName"
-								id="lastName" placeholder="Enter Last Name"
-								required="required">
+								type="text" class="form-control" name="lastName" id="lastName"
+								placeholder="Enter Last Name" required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputEmail1">Address</label> <input
-								type="text" class="form-control" name="address"
-								id="address" placeholder="Enter Address"
-								required="required">
+								type="text" class="form-control" name="address" id="address"
+								placeholder="Enter Address" required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputEmail1">Phone Number</label> <input
 								type="number" class="form-control" name="phoneNumber"
 								id="phoneNumber" placeholder="Enter Phone Number"
 								required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputEmail1">Personal Email</label> <input
 								type="text" class="form-control" name="personalEmail"
 								id="personalEmail" placeholder="Enter Email Address"
 								required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputEmail1">Username</label> <input
 								type="text" class="form-control" name="Username" id="Username"
 								placeholder="Enter Username" required="required">
 						</div>
-						
+
 						<div class="form-group">
 							<label for="exampleInputPassword1">Password</label> <input
 								type="password" class="form-control" name="Password"
 								id="Password" placeholder="Enter Password" required="required">
 						</div>
-						
+
 						<button type="submit" style="width: 100%; font-size: 1.1em;"
 							class="btn btn-large btn btn-success btn-lg btn-block">
 							<b>Sign Up</b>
 						</button>
-						
+
 						<div style="padding-top: 15px; font-size: 85%">
-									Have an account? <a href="login.jsp">Log in now!</a>
-								</div>
+							Have an account? <a href="login.jsp">Log in now!</a>
+						</div>
 					</form>
 				</div>
 			</div>

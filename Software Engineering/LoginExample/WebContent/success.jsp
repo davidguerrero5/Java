@@ -16,33 +16,40 @@
 
 	<%
 		String username = (String) request.getAttribute("Username");
- 		String firstName = (String) request.getAttribute("firstName");
+		String firstName = (String) request.getAttribute("firstName");
 		String lastName = (String) request.getAttribute("lastName");
 		String address = (String) request.getAttribute("address");
 		String phoneNumber = (String) request.getAttribute("phoneNumber");
-		String personalEmail = (String) request.getAttribute("personalEmail"); 
+		String personalEmail = (String) request.getAttribute("personalEmail");
 
 		if (username != null) {
 	%>
 	<h1>
-		Welcome, <%=username%>! <br>
+		Welcome,
+		<%=username%>! <br>
 	</h1>
 	<%
 		}
-		if (firstName != null){
+		if (firstName != null) {
 	%>
-			<h1>
-			Sign up complete. Your account information is displayed below: <br>
-			Your first name is <%=firstName%> <br>
-			Your last name is <%=lastName%> <br>
-			Your address is <%=address%> <br>
-			Your phone number is <%=phoneNumber%> <br>
-			Your personal email is <%=personalEmail%> <br> 
-			</h1>
-	<% 
+	<h1>
+		Sign up complete. Your account information is displayed below: <br>
+		Your first name is
+		<%=firstName%>
+		<br> Your last name is
+		<%=lastName%>
+		<br> Your address is
+		<%=address%>
+		<br> Your phone number is
+		<%=phoneNumber%>
+		<br> Your personal email is
+		<%=personalEmail%>
+		<br>
+	</h1>
+	<%
 		}
 	%>
-	
+
 	<a href="login.jsp">Return to Login Page</a>
 </body>
 </html>
