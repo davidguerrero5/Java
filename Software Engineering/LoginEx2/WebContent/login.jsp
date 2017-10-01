@@ -61,7 +61,7 @@
 					<b><font color="black">Sign Up: Job Seeker</font> </b>
 				</div>
 				<div class="panel-body">
-					<<form action="LoginServlet" method="post">
+					<form action="LoginServlet" method="post">
 
 						<div class="form-group">
 							<label for="exampleInputEmail1">First Name</label> <input
