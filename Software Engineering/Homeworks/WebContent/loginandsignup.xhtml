@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+		integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+		crossorigin="anonymous"></link>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+		integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+		crossorigin="anonymous"></script>
+</h:head>
+<h:body class="container">
+	<h:form class="form-signin">
+		<h1 align="center" style="font-family: Times New Roman">Welcome
+			to my website!</h1>
+		<p></p>
+		<h2 align="center" style="font-family: Times New Roman">Sign In!</h2>
+
+		<h:outputLabel for="fname" class="lebal" value="Username"
+			title="First Name" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="fname" value="#{signInBean.username}" required="true"
+			requiredMessage="Username required" class="form-control" />
+		<h:message id="firstNameMessageID" for="fname" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="fname" class="lebal" value="Password"
+			title="First Name" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputSecret id="pass" value="#{signInBean.password}"
+			required="true" requiredMessage="Password required"
+			class="form-control" />
+		<h:message id="passwordMessageID" for="pass" style="color.red">lalalalallla</h:message>
+		<p></p>
+		<h:commandButton value="Submit" class="btn btn-primary"
+			action="#{signInBean.successP}"></h:commandButton>
+	</h:form>
+
+	<h:form class="form-signup">
+
+		<h2 align="center" style="font-family: Times New Roman">Sign Up!</h2>
+
+		<h:outputLabel for="fname" class="lebal" value="First Name"
+			title="first Name" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="firstname" value="#{registerBean.firstName}"
+			required="true" requiredMessage="First Name required"
+			class="form-control" />
+		<h:message id="firstNameMessageID" for="firstname" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="lname" class="lebal" value="Last Name"
+			title="first Name" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="lname" value="#{registerBean.lastName}"
+			required="true" requiredMessage="Last Name required"
+			class="form-control" />
+		<h:message id="passwordMessageID" for="lname" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="add" class="lebal" value="Address" title="Address"
+			style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="add" value="#{registerBean.address}" required="true"
+			requiredMessage="Address required" class="form-control" />
+		<h:message id="addressMessageID" for="add" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="email" class="lebal" value="Email"
+			title="Email ID" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="email" value="#{registerBean.email}" required="true"
+			requiredMessage="Email Address required" class="form-control" />
+		<h:message id="emailMessageID" for="email" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="ph" class="lebal" value="Phone Number"
+			title="Phone Num" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="ph" value="#{registerBean.phoneNum}" required="true"
+			requiredMessage="Phone Number required" class="form-control" />
+		<h:message id="phoneNumMessageID" for="ph" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="user" class="lebal" value="Username"
+			title="UserName" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputText id="user" value="#{registerBean.userName}"
+			required="true" requiredMessage="Username required"
+			class="form-control" />
+		<h:message id="usernameMessageSignUpIDS" for="user" style="color.red"></h:message>
+		<p></p>
+		<h:outputLabel for="pass" class="lebal" value="Password"
+			title="Password" style="font-family: Times New Roman"></h:outputLabel>
+		<h:inputSecret id="pass" value="#{registerBean.passWord}"
+			required="true" requiredMessage="Password required"
+			class="form-control" />
+		<h:message id="passwordMessageSignUpID" for="pass" style="color.red"></h:message>
+		<p></p>
+		<h:commandButton value="Submit" action="successreg"
+			class="btn btn-primary"></h:commandButton>
+	</h:form>
+
+</h:body>
+</html>
