@@ -88,14 +88,10 @@ public class SignInBean {
 	 }
 
 
-
-
-
-	// called when a user presses the log out button. invalidates the session.
-	public String invalidateSession() {
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		System.out.println("Session Invalidated");
-		return "loginandsignup";
-	}
+	 public String logout() {
+		    FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		    
+		    return "loginandsignup";
+		}
 
 }

@@ -15,12 +15,16 @@
 		crossorigin="anonymous"></script>
 </h:head>
 <h:body>
+	<h:form>
+		<h:commandButton value="Sign Out" class="btn btn-primary"
+			style="position:absolute; top:0; right:0;" action="#{signInBean.logout}"></h:commandButton>
+	</h:form>
+
 	<p style="font-family: Times New Roman">
 		Welcome,
 		<h:outputLabel value="#{signInBean.username}"> You have been successfully signed in!!!!</h:outputLabel>
-		
-		<h:commandButton value="Sign Out" class="btn btn-primary"
-			action="#{signInBean.invalidateSession}"></h:commandButton>
+
+
 	</p>
 </h:body>
 </html>
