@@ -57,7 +57,7 @@ public class RegisterBean {
 		this.password = password;
 	}
 	
-	public String getById() {
+	public String registerUser() {
 		Connection con = null;
 		try {
 			// Setup the DataSource object
@@ -73,14 +73,13 @@ public class RegisterBean {
 
 			// Get a prepared SQL statement
 //			String sql = "SELECT first_name from user where id = ?";
-//			String sql = "INSERT INTO user(firstName, lastName, email, userID, username, password) VALUES(?,?,?,?,?,?)";
 			String sql = "INSERT INTO user(first_name, last_name, email_address, username, password) VALUES(?,?,?,?,?);";
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setString(1, this.firstName);
-			st.setString(2, this.lastName);
-			st.setString(3, this.email);
-			st.setString(4, this.username);
-			st.setString(5, this.password);
+			st.setString(1, this.firstName.trim());
+			st.setString(2, this.lastName.trim());
+			st.setString(3, this.email.trim());
+			st.setString(4, this.username.trim());
+			st.setString(5, this.password.trim());
 			
 
 			// Execute the statement

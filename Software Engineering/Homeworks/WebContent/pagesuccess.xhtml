@@ -17,7 +17,10 @@
 <h:body>
 	<p style="font-family: Times New Roman">
 		Welcome,
-		<h:outputLabel value="#{signInBean.username}"></h:outputLabel>
+		<h:outputLabel value="#{signInBean.username}"> You have been successfully signed in!!!!</h:outputLabel>
+		
+		<h:commandButton value="Sign Out" class="btn btn-primary"
+			action="#{signInBean.invalidateSession}"></h:commandButton>
 	</p>
 </h:body>
 </html>

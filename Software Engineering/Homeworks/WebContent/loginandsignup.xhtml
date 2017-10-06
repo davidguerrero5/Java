@@ -32,10 +32,10 @@
 		<h:inputSecret id="pass" value="#{signInBean.password}"
 			required="true" requiredMessage="Password required"
 			class="form-control" />
-		<h:message id="passwordMessageID" for="pass" style="color.red">lalalalallla</h:message>
+		<h:message id="passwordMessageID" for="pass" style="color.red"></h:message>
 		<p></p>
 		<h:commandButton value="Submit" class="btn btn-primary"
-			action="#{signInBean.successP}"></h:commandButton>
+			action="#{signInBean.validateUser}"></h:commandButton>
 	</h:form>
 
 	<h:form class="form-signup">
@@ -76,7 +76,7 @@
 			class="form-control" />
 		<h:message id="passwordMessageSignUpID" for="pass" style="color.red"></h:message>
 		<p></p>
-		<h:commandButton value="Submit" action="#{registerBean.getById}"
+		<h:commandButton value="Submit" action="#{registerBean.registerUser}"
 			class="btn btn-primary"></h:commandButton>
 	</h:form>
 
