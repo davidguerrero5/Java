@@ -56,23 +56,11 @@
 			class="form-control" />
 		<h:message id="passwordMessageID" for="lname" style="color.red"></h:message>
 		<p></p>
-		<h:outputLabel for="add" class="lebal" value="Address" title="Address"
-			style="font-family: Times New Roman"></h:outputLabel>
-		<h:inputText id="add" value="#{registerBean.address}" required="true"
-			requiredMessage="Address required" class="form-control" />
-		<h:message id="addressMessageID" for="add" style="color.red"></h:message>
-		<p></p>
-		<h:outputLabel for="email" class="lebal" value="Email"
+		<h:outputLabel for="email" class="lebal" value="Email Address"
 			title="Email ID" style="font-family: Times New Roman"></h:outputLabel>
 		<h:inputText id="email" value="#{registerBean.email}" required="true"
 			requiredMessage="Email Address required" class="form-control" />
 		<h:message id="emailMessageID" for="email" style="color.red"></h:message>
-		<p></p>
-		<h:outputLabel for="ph" class="lebal" value="Phone Number"
-			title="Phone Num" style="font-family: Times New Roman"></h:outputLabel>
-		<h:inputText id="ph" value="#{registerBean.phoneNum}" required="true"
-			requiredMessage="Phone Number required" class="form-control" />
-		<h:message id="phoneNumMessageID" for="ph" style="color.red"></h:message>
 		<p></p>
 		<h:outputLabel for="user" class="lebal" value="Username"
 			title="UserName" style="font-family: Times New Roman"></h:outputLabel>
@@ -88,7 +76,7 @@
 			class="form-control" />
 		<h:message id="passwordMessageSignUpID" for="pass" style="color.red"></h:message>
 		<p></p>
-		<h:commandButton value="Submit" action="successreg"
+		<h:commandButton value="Submit" action="#{registerBean.getById}"
 			class="btn btn-primary"></h:commandButton>
 	</h:form>
 
