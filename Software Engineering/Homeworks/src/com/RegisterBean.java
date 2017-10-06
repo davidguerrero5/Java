@@ -40,7 +40,7 @@ public class RegisterBean {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getUserName() {
 		return username;
 	}
@@ -56,7 +56,7 @@ public class RegisterBean {
 	public void setPassWord(String password) {
 		this.password = password;
 	}
-	
+
 	public String registerUser() {
 		Connection con = null;
 		try {
@@ -72,7 +72,7 @@ public class RegisterBean {
 			con = ds.getConnection();
 
 			// Get a prepared SQL statement
-//			String sql = "SELECT first_name from user where id = ?";
+			// String sql = "SELECT first_name from user where id = ?";
 			String sql = "INSERT INTO user(first_name, last_name, email_address, username, password) VALUES(?,?,?,?,?);";
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, this.firstName.trim());
@@ -80,7 +80,6 @@ public class RegisterBean {
 			st.setString(3, this.email.trim());
 			st.setString(4, this.username.trim());
 			st.setString(5, this.password.trim());
-			
 
 			// Execute the statement
 			int rs = st.executeUpdate();
@@ -94,6 +93,6 @@ public class RegisterBean {
 			}
 		}
 		return "successreg";
-//		 return "successreg?faces-redirect=true";
+		// return "successreg?faces-redirect=true";
 	}
 }
