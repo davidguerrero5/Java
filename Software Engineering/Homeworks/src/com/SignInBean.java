@@ -64,7 +64,7 @@ public class SignInBean {
 	 // Execute the statement
 	 ResultSet rs = st.executeQuery();
 	
-	 // starts session --> ?
+	 // starts session 
 	 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("username", username);
 	
 	 // Iterate through results
