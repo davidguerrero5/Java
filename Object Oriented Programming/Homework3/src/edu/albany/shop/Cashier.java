@@ -5,8 +5,10 @@ import java.util.ArrayList;
 public class Cashier {
 	// cashier's name
 	private String name;
+	
 	// customer that is ordering
 	private Customer currentCustomer;
+	
 	// total amount of money in the register
 	private double register;
 
