@@ -2,13 +2,13 @@ package edu.albany.shop;
 
 public class Customer {
 	// customer's name
-	private String name; 
-	
+	private String name;
+
 	// price of the sandwich the customer wants to buy
-	private double cash; 
-	
+	private double cash;
+
 	// customer's desired sandwich
-	private String desiredSandwich; 
+	private String desiredSandwich;
 
 	public double getCash() {
 		return cash;
@@ -42,7 +42,7 @@ public class Customer {
 		}
 		return answer;
 	}
-	
+
 	public String getDesiredSandwich() {
 		return desiredSandwich;
 	}

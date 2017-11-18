@@ -10,7 +10,8 @@ public class SandwichDriver {
 		// Cashier : Synthia, Money in register: 10,000
 		Cashier cashier = new Cashier("Synthia", 10000.0, customer);
 
-		// Sandwich Maker: Dave, Gives sandwich to Synthia to initiate transaction process
+		// Sandwich Maker: Dave, Gives sandwich to Synthia to initiate
+		// transaction process
 		SandwichMaker sandwichMaker = new SandwichMaker("Dave", cashier);
 
 		// prints customer info
@@ -20,13 +21,11 @@ public class SandwichDriver {
 		System.out.println(cashier);
 
 		// sandwich maker makes sandwich and transaction goes through
-		if (sandwichMaker.makeSandwich()) {
-			cashier.computeTotal();
-		}
+		sandwichMaker.makeSandwich();
 
 		// prints the cashier to show the new register total
 		System.out.println(cashier);
-		
+
 		// prints the customer to show his new balance
 		System.out.println(customer);
 
