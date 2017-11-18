@@ -1,10 +1,14 @@
 package edu.albany.shop;
 
 public class Customer {
-	private String name; // customer's name
-	private double cash; // price of the sandwich the customer wants to buy
-	private String desiredSandwich; // customer's desired sandwich
-
+	// customer's name
+	private String name; 
+	
+	// price of the sandwich the customer wants to buy
+	private double cash; 
+	
+	// customer's desired sandwich
+	private String desiredSandwich; 
 
 	public double getCash() {
 		return cash;
@@ -36,7 +40,6 @@ public class Customer {
 			cash -= total;
 			answer = true;
 		}
-
 		return answer;
 	}
 	
@@ -46,6 +49,6 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "\nCustomer Name: " + name + "\nAccount Balance: " + cash + "\nSandwich: " + desiredSandwich;
+		return "\nCustomer Name: " + name + "\nCash in Hand: " + cash + "\nSandwich: " + desiredSandwich;
 	}
 }

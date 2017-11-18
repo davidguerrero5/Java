@@ -12,6 +12,8 @@ public class SandwichMaker {
 	
 	// sandwich maker makes the sandwich
 	public boolean makeSandwich() {
+		System.out.println();
+		System.out.println("TRANSACTION SUCCESSFUL!");
 		return true;
 	}
 
