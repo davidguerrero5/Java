@@ -10,7 +10,7 @@ public class SandwichDriver {
 		// Cashier : Synthia, Money in register: 10,000
 		Cashier cashier = new Cashier("Synthia", 10000.0, customer);
 
-		// Sandwich Maker: Dave, Gives sandwich to Synthia
+		// Sandwich Maker: Dave, Gives sandwich to Synthia to initiate transaction process
 		SandwichMaker sandwichMaker = new SandwichMaker("Dave", cashier);
 
 		// prints customer info

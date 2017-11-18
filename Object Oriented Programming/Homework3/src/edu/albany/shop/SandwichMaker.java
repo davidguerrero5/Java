@@ -2,7 +2,6 @@ package edu.albany.shop;
 
 public class SandwichMaker {
 	private String name; 
-
 	private Cashier cashier; 
 
 	public SandwichMaker(String name, Cashier cashier) {

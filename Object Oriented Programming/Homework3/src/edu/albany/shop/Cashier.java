@@ -3,18 +3,20 @@ package edu.albany.shop;
 import java.util.ArrayList;
 
 public class Cashier {
-	private String name; // cashier's name
-	private Customer currentCustomer; // the customer the cashier is currently
-										// servicing
-	private double register; // the amount of cash in the till
+	// cashier's name
+	private String name; 
+	// customer that is ordering
+	private Customer currentCustomer; 
+	// total amount of money in the register
+	private double register; 
 
-	public Cashier(String name, double tillCash, Customer customer) {
+	public Cashier(String name, double register, Customer customer) {
 		this.name = name;
-		this.register = tillCash;
+		this.register = register;
 		this.currentCustomer = customer;
 	}
 
-	public void ringUpSandwich(Customer customer) {
+	public void sandwichRequest(Customer customer) {
 		currentCustomer = customer;
 		computeTotal();
 	}
