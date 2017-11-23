@@ -109,51 +109,60 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="13">    
+  <class id="13" language="java" name="edu.albany.dg643867.setup.Cash" project="TermProject" 
+    file="/TermProject/src/edu/albany/dg643867/setup/Cash.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="827" y="456"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="14">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="14" name="lemonade"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="15" name="lemonade"/>      
+      <multiplicity id="16" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="16">    
+  <generalization id="17">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="17">    
+  <generalization id="18">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="18">    
+  <association id="19">    
     <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="19" name="water"/>      
-      <multiplicity id="20" minimum="0" maximum="1"/>    
+      <attribute id="20" name="water"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="21">    
+  <generalization id="22">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="9"/>  
   </generalization>  
-  <generalization id="22">    
+  <generalization id="23">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="11"/>  
   </generalization>  
-  <generalization id="23">    
+  <generalization id="24">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <generalization id="24">    
+  <generalization id="25">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="11"/>  
   </generalization>  
-  <generalization id="25">    
+  <generalization id="26">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="26">    
+  <generalization id="27">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  

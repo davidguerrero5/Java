@@ -2,6 +2,7 @@ package edu.albany.dg643867.main;
 import edu.albany.dg643867.bob.BobLemonadeStand;
 import edu.albany.dg643867.david.DavidLemonadeStand;
 import edu.albany.dg643867.setup.LemonadeStandCreator;
+import edu.albany.dg643867.setup.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -17,5 +18,6 @@ public class Main {
 		LemonadeStand davidLemonadeStand = new LemonadeStand(davidSetup);
 		System.out.println("______________David's Lemonade Stand____________");
 		System.out.println(davidLemonadeStand);
+		
 	}
 }
