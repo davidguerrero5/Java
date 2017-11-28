@@ -1,19 +1,14 @@
 package com.hasu.singleton;
 
-/**
- * A computer server
- * @author Umang
- *
- */
 public class Server {
 	
 	private static Server server = null;
 	protected int memory;
-	protected int cpu;
+	protected int cpuCores;
 	
 	private Server(){
-		memory = 1;
-		cpu = 2;
+		memory = 16;
+		cpuCores = 8;
 	}
 	
 	public static Server getServer(){
@@ -25,6 +20,6 @@ public class Server {
 	
 	@Override
 	public String toString() {
-		return String.format("Memory %dGB and cores %d", memory, cpu);
+		return String.format("Memory %dGB and cores %d", memory, cpuCores);
 	}
 }
