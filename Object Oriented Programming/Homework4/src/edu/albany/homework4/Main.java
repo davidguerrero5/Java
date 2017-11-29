@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		
+
 		String binaryNum;
 		BinaryWord word;
 		BinaryWord complement;
-		
+
 		PositiveInteger posInt1, posInt2, posInt3, posIntSum;
 		int number1, number2, number3;
-		
+
 		RGBColor color1, color2, color3, combinedColors;
 		int red1, green1, blue1, red2, green2, blue2, red3, green3, blue3;
 
@@ -27,8 +27,8 @@ public class Main {
 		word = new BinaryWord(binaryNum);
 		complement = word.complement();
 
-		System.out.printf("\n%10s%s\n", "You have entered: ", word);
-		System.out.printf("%10s%s\n", "Complement: ", complement);
+		System.out.printf("\n" + "You have entered: " + word + "\n");
+		System.out.printf("Complement: " + complement + "\n");
 
 		System.out.printf("\nEnter value of red color 1: ");
 		red1 = keyboard.nextInt();
@@ -47,8 +47,8 @@ public class Main {
 		color2 = new RGBColor(red2, green2, blue2);
 		color3 = color1.operator(color2);
 
-		System.out.printf("\nAverage of first and second set of colors: Red: %d Green: %d Blue: %d\n", color3.getRed(),
-				color3.getGreen(), color3.getBlue());
+		System.out.printf("\nAverage of first and second set of colors: Red: " + color3.getRed() + " Green: "
+				+ color3.getGreen() + " Blue: " + color3.getBlue() + "\n");
 
 		System.out.printf("\nEnter value of red color 3: ");
 		red3 = keyboard.nextInt();
@@ -63,8 +63,8 @@ public class Main {
 		colorList.add(color3);
 		combinedColors = RGBColor.combine(colorList);
 
-		System.out.printf("\nAverage of second and third sets of colors: Red: %d Green: %d Blue: %d\n",
-				combinedColors.getRed(), combinedColors.getGreen(), combinedColors.getBlue());
+		System.out.printf("\nAverage of second and third sets of colors: Red: " + combinedColors.getRed() + " Green: "
+				+ combinedColors.getGreen() + " Blue: " + combinedColors.getBlue() + "\n");
 
 		System.out.printf("\nEnter positive integer 1: ");
 		number1 = keyboard.nextInt();
@@ -81,7 +81,7 @@ public class Main {
 		positiveIntegerList.add(posInt3);
 		posIntSum = PositiveInteger.combine(positiveIntegerList);
 
-		System.out.printf("\nSum of all three positive integers: %d", posIntSum.getInt());
+		System.out.printf("\nSum of all three positive integers: " + posIntSum.getInt());
 
 		keyboard.close();
 		System.exit(0);

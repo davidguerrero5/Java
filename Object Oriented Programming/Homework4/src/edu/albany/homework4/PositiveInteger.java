@@ -10,12 +10,12 @@ public class PositiveInteger extends Semigroup<PositiveInteger> {
 	public PositiveInteger(int positiveInt) {
 		if (positiveInt >= 0) {
 			this.positiveInteger = positiveInt;
-		} 
-		else {
+		} else {
 			throw new IllegalArgumentException();
 		}
 	}
 
+	// acts as a toString method
 	public int getInt() {
 		return positiveInteger;
 	}
@@ -24,10 +24,10 @@ public class PositiveInteger extends Semigroup<PositiveInteger> {
 		PositiveInteger newPositiveInt;
 		int sum;
 
-		
 		sum = posInt.getInt() + this.positiveInteger;
 		newPositiveInt = new PositiveInteger(sum);
 
 		return newPositiveInt;
 	}
+
 }
