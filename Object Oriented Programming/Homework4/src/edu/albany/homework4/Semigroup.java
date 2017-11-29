@@ -1,4 +1,4 @@
-package edu.albany.homework3;
+package edu.albany.homework4;
 
 import java.util.Collection;
 
@@ -8,13 +8,14 @@ public abstract class Semigroup<T> {
 	public static <T> T combine(Collection<T> collection) {
 		Semigroup<T> object = null;
 
-		for (T element:collection) {
+		for (T element : collection) {
 			if (object == null) {
 				object = (Semigroup<T>) element;
-			} else {
+			} 
+			else {
 				object = (Semigroup<T>) object.operator(element);
 			}
 		}
-		return (T)object;
+		return (T) object;
 	}
 }

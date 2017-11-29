@@ -1,4 +1,4 @@
-package edu.albany.homework3;
+package edu.albany.homework4;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,7 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 		
 		String binaryNum;
-		BinaryWord word, comp;
+		BinaryWord word;
+		BinaryWord complement;
 		
 		PositiveInteger posInt1, posInt2, posInt3, posIntSum;
 		int number1, number2, number3;
@@ -24,22 +25,22 @@ public class Main {
 		System.out.printf("Enter a binary number: ");
 		binaryNum = keyboard.next();
 		word = new BinaryWord(binaryNum);
-		comp = word.complement();
+		complement = word.complement();
 
-		System.out.printf("\n %10s %s\n", "Original", word);
-		System.out.printf("%10s %s\n", "Complement", comp);
+		System.out.printf("\n%10s%s\n", "You have entered: ", word);
+		System.out.printf("%10s%s\n", "Complement: ", complement);
 
-		System.out.printf("\nEnter value of red for color 1: ");
+		System.out.printf("\nEnter value of red color 1: ");
 		red1 = keyboard.nextInt();
-		System.out.printf("Enter value of green for color 1: ");
+		System.out.printf("Enter value of green color 1: ");
 		green1 = keyboard.nextInt();
-		System.out.printf("Enter value of blue for color 1: ");
+		System.out.printf("Enter value of blue color 1: ");
 		blue1 = keyboard.nextInt();
-		System.out.printf("Enter value of red for color 2: ");
+		System.out.printf("Enter value of red color 2: ");
 		red2 = keyboard.nextInt();
-		System.out.printf("Enter value of green for color 2: ");
+		System.out.printf("Enter value of green color 2: ");
 		green2 = keyboard.nextInt();
-		System.out.printf("Enter value of blue for color 2: ");
+		System.out.printf("Enter value of blue color 2: ");
 		blue2 = keyboard.nextInt();
 
 		color1 = new RGBColor(red1, green1, blue1);
@@ -49,11 +50,11 @@ public class Main {
 		System.out.printf("\nAverage of first and second set of colors: Red: %d Green: %d Blue: %d\n", color3.getRed(),
 				color3.getGreen(), color3.getBlue());
 
-		System.out.printf("\nEnter value of red for color 3: ");
+		System.out.printf("\nEnter value of red color 3: ");
 		red3 = keyboard.nextInt();
-		System.out.printf("Enter value of green for color 3: ");
+		System.out.printf("Enter value of green color 3: ");
 		green3 = keyboard.nextInt();
-		System.out.printf("Enter value of blue for color 3: ");
+		System.out.printf("Enter value of blue color 3: ");
 		blue3 = keyboard.nextInt();
 
 		color3 = new RGBColor(red3, green3, blue3);
@@ -62,7 +63,7 @@ public class Main {
 		colorList.add(color3);
 		combinedColors = RGBColor.combine(colorList);
 
-		System.out.printf("\nAverage of second and third set of colors: Red: %d Green: %d Blue: %d\n",
+		System.out.printf("\nAverage of second and third sets of colors: Red: %d Green: %d Blue: %d\n",
 				combinedColors.getRed(), combinedColors.getGreen(), combinedColors.getBlue());
 
 		System.out.printf("\nEnter positive integer 1: ");

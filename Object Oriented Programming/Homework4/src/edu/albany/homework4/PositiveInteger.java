@@ -1,4 +1,4 @@
-package edu.albany.homework3;
+package edu.albany.homework4;
 
 public class PositiveInteger extends Semigroup<PositiveInteger> {
 	private int positiveInteger;

@@ -1,4 +1,4 @@
-package edu.albany.homework3;
+package edu.albany.homework4;
 
 public class RGBColor extends Semigroup<RGBColor> implements Complementable<RGBColor> {
 	private int red;
