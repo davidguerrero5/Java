@@ -24,12 +24,84 @@
 						rendered="#{not empty userBean.username}">
 						<p>Welcome, #{userBean.username}. This is the manager page.
 							You can manage your clients here.</p>
+						<p>Your cash balance is: $#{userBean.balance}.</p>
+						<p>Value of all of your current stocks:
+							$#{userBean.purchasedStockSum}</p>
 					</h:panelGroup>
 				</span> <span style="float: right;"><h:link value="Logout"
 						outcome="index" style="text-align: right;" /></span> <span
 					style="float: center;"><h:link value="Settings |"
 						outcome="settings" style="text-align: center;" /></span>
 			</div>
+		</div>
+		<div class="currentstocks">
+			<h2>All purchased stocks</h2>
+			<h:form>
+				<h:dataTable value="#{userBean.getPurchasedStocks()}" var="stock"
+					border="1">
+
+					<h:column>
+						<f:facet name="header">Symbol</f:facet>
+						#{stock.stockSymbol}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">Quantity</f:facet>
+						#{stock.quantity}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">Price (USD)</f:facet>
+						#{stock.price}
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">Amount Paid (USD)</f:facet>
+						#{stock.amount}
+				</h:column>
+
+					<!-- 					<h:column>
+						<f:facet name="header">Do Something</f:facet>
+						<h:commandButton value="Purchase"
+							action="#{stockApiBean.purchaseStock()}" />
+					</h:column> -->
+
+				</h:dataTable>
+			</h:form>
+
+		</div>
+
+		<div class="datasearch">
+			<legend>Search Data</legend>
+
+			<div class="row">
+
+				<h:form>
+					<label for="sel1">Stock: </label>
+					<h:selectOneMenu id="symbol" value="#{stockApiBean.selectedSymbol}">
+						<f:selectItems value="#{stockApiBean.availableSymbols}" />
+					</h:selectOneMenu>
+
+					<label for="sel1">Interval: </label>
+					<h:selectOneMenu id="interval"
+						value="#{stockApiBean.selectedInterval}">
+						<f:selectItems value="#{stockApiBean.availableIntervals}" />
+					</h:selectOneMenu>
+					<br />
+					<h:commandButton value="Get Data"
+						action="#{stockApiBean.timeseries}" styleClass="btn btn-success" />
+				</h:form>
+			</div>
+
+			<h:panelGroup rendered="#{not empty stockApiBean.table1Markup}">
+				<h:outputText value="#{stockApiBean.table1Markup}" escape="false"
+					styleClass="preformatted" />
+			</h:panelGroup>
+
+			<h:panelGroup rendered="#{not empty stockApiBean.table2Markup}">
+				<h:outputText value="#{stockApiBean.table2Markup}" escape="false"
+					styleClass="preformatted" />
+			</h:panelGroup>
 		</div>
 
 	</div>

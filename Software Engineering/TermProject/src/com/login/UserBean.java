@@ -294,11 +294,10 @@ public class UserBean {
 					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
 
 			// gets balance from session
-			Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-					.get("balance");
+			Double startingBalance = 100000.0;
 			
 			Double total = getPurchasedStocksSum();
-			currentBalance = balance - total;
+			currentBalance = startingBalance - total;
 			
 			st.setDouble(1, currentBalance);
 			st.setInt(2, uid);
