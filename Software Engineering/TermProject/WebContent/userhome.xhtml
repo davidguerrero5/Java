@@ -32,8 +32,42 @@
 				</div>
 			</div>
 		</h:form>
+		<div class="currentstocks">
+		<h2>All purchased stocks</h2>
+			<h:dataTable value="#{userBean.getPurchasedStocks()}" var="stock" border="1">
 
-		<div class="well">
+				<h:column>
+					<f:facet name="header">Symbol</f:facet>
+						#{stock.stockSymbol}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Quantity</f:facet>
+						#{stock.quantity}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Price (USD)</f:facet>
+						#{stock.price}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Amount Paid (USD)</f:facet>
+						#{stock.amount}
+				</h:column>
+
+			</h:dataTable>
+		
+		
+		
+		
+		
+		
+		
+		
+		</div>
+
+		<div class="datasearch">
 			<legend>Search Data</legend>
 
 			<div class="row">

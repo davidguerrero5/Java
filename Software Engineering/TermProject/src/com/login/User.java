@@ -7,7 +7,7 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class User {
 
-	private int userID;
+	public static int userID;
 	private String firstName;
 	private String lastName;
 	private String username;

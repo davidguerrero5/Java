@@ -22,7 +22,8 @@ public class UserBean {
 	private String username;
 	private String password;
 	private String role;
-	
+	private String newUsername;
+	private Integer uid;
 
 	public String getUsername() {
 		return username;
@@ -48,6 +49,14 @@ public class UserBean {
 		this.role = role;
 	}
 
+	public String getNewUsername() {
+		return newUsername;
+	}
+
+	public void setNewUsername(String newUsername) {
+		this.newUsername = newUsername;
+	}
+
 	public String validateUser() {
 		boolean valid = LoginDAO.validate(username, password, role);
 		if (valid == true && role.equalsIgnoreCase("user")) {
@@ -64,26 +73,41 @@ public class UserBean {
 	}
 
 	public String updateUser(String newUsername) {
-		// System.out.println("THIS IS PRINTINGNIGNGGNINGNG");
-		Connection con = null;
+		Connection conn = null;
 		try {
-			con = DataConnect.getConnection();
-
-			// UPDATE `online_course`.`users` SET `last_name`='aaaaaaa' WHERE `uid`='12';
-
+			conn = DataConnect.getConnection();
 			String sql = "UPDATE users SET username = ? WHERE uid = ?;";
-			PreparedStatement st = con.prepareStatement(sql);
+			PreparedStatement st = conn.prepareStatement(sql);
+			
+			// gets uid
+			Integer uid = Integer.parseInt((String) FacesContext.getCurrentInstance()
+                    .getExternalContext()
+                    .getSessionMap().get("uid"));
+			
+			System.out.println(newUsername);
+			System.out.println(newUsername);
+			System.out.println(newUsername);
+			System.out.println(newUsername);
+			System.out.println(newUsername);
+			
 			st.setString(1, newUsername);
-			st.setInt(2, 7);
+			st.setInt(2, uid);
 
 			// Execute the statement
-			int rs = st.executeUpdate();
+			st.executeUpdate();
+			System.out.println(this.getUsername());
+			
+			// gets new username
+			String username = ((String) FacesContext.getCurrentInstance()
+                    .getExternalContext()
+                    .getSessionMap().get("username"));
+			System.out.println(username);
 
 		} catch (Exception e) {
 			System.err.println("Exception: " + e.getMessage());
 		} finally {
 			try {
-				con.close();
+				conn.close();
 			} catch (SQLException e) {
 			}
 		}
@@ -92,7 +116,7 @@ public class UserBean {
 		// return "successreg?faces-redirect=true";
 	}
 
-	public List<User> getUserList() {
+	public List<User> getManagerList() {
 		List<User> list = new ArrayList<User>();
 		PreparedStatement ps = null;
 		Connection conn = null;
@@ -122,32 +146,78 @@ public class UserBean {
 		}
 		return list;
 	}
-	
+
 	public void validateManagers() {
 		try {
 			Connection conn = DataConnect.getConnection();
 			Statement statement = conn.createStatement();
 			statement.executeUpdate("UPDATE users SET confirmed='Yes' WHERE role='manager'");
-			
+
 		} catch (Exception e) {
 			System.out.println("Error Data : " + e.getMessage());
 		}
 	}
-	
+
 	public void denyManagers() {
 		try {
 			Connection conn = DataConnect.getConnection();
 			Statement statement = conn.createStatement();
 			statement.executeUpdate("DELETE FROM users WHERE role='manager' && confirmed='No'");
-			
+
 		} catch (Exception e) {
 			System.out.println("Error Data : " + e.getMessage());
 		}
+	}
+
+	public List<Stock> getPurchasedStocks() {
+		List<Stock> list = new ArrayList<Stock>();
+		PreparedStatement ps = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "SELECT * from purchase where uid = ?";
+			ps = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			ps.setInt(1, uid);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Stock stock = new Stock();
+				stock.setStockSymbol(rs.getString("stock_symbol"));
+				stock.setQuantity(rs.getInt("qty"));
+				stock.setPrice(rs.getDouble("price"));
+				stock.setAmount(rs.getDouble("amt"));
+				list.add(stock);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				ps.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
 	}
 
 	// logout event, invalidate session
 	public void logout() throws IOException {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
 }

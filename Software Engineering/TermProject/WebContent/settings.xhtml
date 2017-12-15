@@ -38,9 +38,9 @@
 				<h2 align="center" style="font-family: Times New Roman">Account
 					Details</h2>
 
-				<h:outputLabel for="userame" class="lebal" value="User Name"
+				<h:outputLabel for="newUsername" class="lebal" value="User Name"
 					title="User Name" style="font-family: Times New Roman"></h:outputLabel>
-				<h:inputText id="username" value="#{userBean.username}"
+				<h:inputText id="newUsername" value="#{userBean.newUsername}"
 					required="true" requiredMessage="User Name required"
 					class="form-control" />
 				<h:message id="userNameMessageID" for="username" style="color.red"></h:message>
@@ -48,7 +48,7 @@
 
 
 				<h:commandButton value="Submit"
-					action="#{userBean.updateUser}" class="btn btn-primary"></h:commandButton>
+					action="#{userBean.updateUser(userBean.newUsername)}" class="btn btn-primary"></h:commandButton>
 			</h:form>
 
 
