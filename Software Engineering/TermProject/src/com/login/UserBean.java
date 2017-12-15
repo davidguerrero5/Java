@@ -96,8 +96,8 @@ public class UserBean {
 	}
 
 	public Double getBalance() {
-		Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("balance");
-		return balance;
+//		Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("balance");
+		return updateBalance();
 	}
 
 	public void setBalance(Double balance) {
@@ -281,39 +281,43 @@ public class UserBean {
 		// return "successreg?faces-redirect=true";
 	}
 
-//	public String updateBalance() {
-//		Connection conn = null;
-//		try {
-//			conn = DataConnect.getConnection();
-//			String sql = "UPDATE users SET balance = ? WHERE uid = ?;";
-//			PreparedStatement st = conn.prepareStatement(sql);
-//
-//			// gets uid from session
-//			Integer uid = Integer.parseInt(
-//					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
-//
-//			// gets balance from session
-//			Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-//					.get("balance");
-//
-//			st.setDouble(1, balance - total);
-//			st.setInt(2, uid);
-//
-//			// Execute the statement
-//			st.executeUpdate();
-//
-//		} catch (Exception e) {
-//			System.err.println("Exception: " + e.getMessage());
-//		} finally {
-//			try {
-//				conn.close();
-//			} catch (SQLException e) {
-//			}
-//		}
-//		System.out.println("You have successfully updated your balance!");
-//		return "userhome";
-//		// return "successreg?faces-redirect=true";
-//	}
+	public Double updateBalance() {
+		Connection conn = null;
+		Double currentBalance = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "UPDATE users SET balance = ? WHERE uid = ?;";
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			// gets uid from session
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			// gets balance from session
+			Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+					.get("balance");
+			
+			Double total = getPurchasedStocksSum();
+			currentBalance = balance - total;
+			
+			st.setDouble(1, currentBalance);
+			st.setInt(2, uid);
+
+			// Execute the statement
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.err.println("Exception: " + e.getMessage());
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		System.out.println("You have successfully updated your balance!");
+		return currentBalance;
+		// return "successreg?faces-redirect=true";
+	}
 
 	public List<User> getManagerList() {
 		List<User> list = new ArrayList<User>();
