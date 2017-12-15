@@ -22,8 +22,12 @@ public class UserBean {
 	private String username;
 	private String password;
 	private String role;
-	private String newUsername;
 	private Integer uid;
+	private String newFirstName;
+	private String newLastName;
+	private String newUsername;
+	private String newEmailAddress;
+	private String newPassword;
 
 	public String getUsername() {
 		return username;
@@ -57,6 +61,46 @@ public class UserBean {
 		this.newUsername = newUsername;
 	}
 
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public String getNewFirstName() {
+		return newFirstName;
+	}
+
+	public void setNewFirstName(String newFirstName) {
+		this.newFirstName = newFirstName;
+	}
+
+	public String getNewLastName() {
+		return newLastName;
+	}
+
+	public void setNewLastName(String newLastName) {
+		this.newLastName = newLastName;
+	}
+
+	public String getNewEmailAddress() {
+		return newEmailAddress;
+	}
+
+	public void setNewEmailAddress(String newEmailAddress) {
+		this.newEmailAddress = newEmailAddress;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
+
 	public String validateUser() {
 		boolean valid = LoginDAO.validate(username, password, role);
 		if (valid == true && role.equalsIgnoreCase("user")) {
@@ -72,36 +116,22 @@ public class UserBean {
 		}
 	}
 
-	public String updateUser(String newUsername) {
+	public String updateUsername(String newUsername) {
 		Connection conn = null;
 		try {
 			conn = DataConnect.getConnection();
 			String sql = "UPDATE users SET username = ? WHERE uid = ?;";
 			PreparedStatement st = conn.prepareStatement(sql);
-			
+
 			// gets uid
-			Integer uid = Integer.parseInt((String) FacesContext.getCurrentInstance()
-                    .getExternalContext()
-                    .getSessionMap().get("uid"));
-			
-			System.out.println(newUsername);
-			System.out.println(newUsername);
-			System.out.println(newUsername);
-			System.out.println(newUsername);
-			System.out.println(newUsername);
-			
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
 			st.setString(1, newUsername);
 			st.setInt(2, uid);
 
 			// Execute the statement
 			st.executeUpdate();
-			System.out.println(this.getUsername());
-			
-			// gets new username
-			String username = ((String) FacesContext.getCurrentInstance()
-                    .getExternalContext()
-                    .getSessionMap().get("username"));
-			System.out.println(username);
 
 		} catch (Exception e) {
 			System.err.println("Exception: " + e.getMessage());
@@ -111,11 +141,131 @@ public class UserBean {
 			} catch (SQLException e) {
 			}
 		}
-		System.out.println("Update successful");
+		System.out.println("You have successfully updated your username!");
 		return "userhome";
 		// return "successreg?faces-redirect=true";
 	}
 
+	public String updatePassword(String newPassword) {
+		Connection conn = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "UPDATE users SET password = ? WHERE uid = ?;";
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			st.setString(1, newPassword);
+			st.setInt(2, uid);
+
+			// Execute the statement
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.err.println("Exception: " + e.getMessage());
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		System.out.println("You have successfully updated your password!");
+		return "userhome";
+		// return "successreg?faces-redirect=true";
+	}
+	
+	public String updateFirstName(String newFirstName) {
+		Connection conn = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "UPDATE users SET first_name = ? WHERE uid = ?;";
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			st.setString(1, newFirstName);
+			st.setInt(2, uid);
+
+			// Execute the statement
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.err.println("Exception: " + e.getMessage());
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		System.out.println("You have successfully updated your first name!");
+		return "userhome";
+		// return "successreg?faces-redirect=true";
+	}
+	
+	public String updateLastName(String newLastName) {
+		Connection conn = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "UPDATE users SET last_name = ? WHERE uid = ?;";
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			st.setString(1, newLastName);
+			st.setInt(2, uid);
+
+			// Execute the statement
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.err.println("Exception: " + e.getMessage());
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		System.out.println("You have successfully updated your last name!");
+		return "userhome";
+		// return "successreg?faces-redirect=true";
+	}
+
+	public String updateEmailAddress(String newEmailAddress) {
+		Connection conn = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "UPDATE users SET email_address = ? WHERE uid = ?;";
+			PreparedStatement st = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			st.setString(1, newEmailAddress);
+			st.setInt(2, uid);
+
+			// Execute the statement
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.err.println("Exception: " + e.getMessage());
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+			}
+		}
+		System.out.println("You have successfully updated your email address!");
+		return "userhome";
+		// return "successreg?faces-redirect=true";
+	}
+	
 	public List<User> getManagerList() {
 		List<User> list = new ArrayList<User>();
 		PreparedStatement ps = null;
@@ -213,11 +363,4 @@ public class UserBean {
 		FacesContext.getCurrentInstance().getExternalContext().redirect("login.xhtml");
 	}
 
-	public Integer getUid() {
-		return uid;
-	}
-
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
 }

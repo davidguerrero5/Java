@@ -41,14 +41,73 @@
 				<h:outputLabel for="newUsername" class="lebal" value="User Name"
 					title="User Name" style="font-family: Times New Roman"></h:outputLabel>
 				<h:inputText id="newUsername" value="#{userBean.newUsername}"
-					required="true" requiredMessage="User Name required"
+					required="false" requiredMessage="User Name required"
 					class="form-control" />
-				<h:message id="userNameMessageID" for="username" style="color.red"></h:message>
+				<h:message id="userNameMessageID" for="newUsername" style="color.red"></h:message>
+				<p></p>
+
+				<h:commandButton value="Update Username"
+					action="#{userBean.updateUsername(userBean.newUsername)}"
+					class="btn btn-primary"></h:commandButton>
+
+				<p></p>
+				<h:outputLabel for="newPassword" class="lebal" value="Password"
+					title="Password" style="font-family: Times New Roman"></h:outputLabel>
+				<h:inputText id="newPassword" value="#{userBean.newPassword}"
+					required="false" requiredMessage="New Password required"
+					class="form-control" />
+				<h:message id="newPasswordMessageID" for="newPassword"
+					style="color.red"></h:message>
+				<p></p>
+
+				<h:commandButton value="Update Password"
+					action="#{userBean.updatePassword(userBean.newPassword)}"
+					class="btn btn-primary"></h:commandButton>
+				
+				<p></p>
+				<h:outputLabel for="newFirstName" class="lebal" value="First Name"
+					title="First Name" style="font-family: Times New Roman"></h:outputLabel>
+				<h:inputText id="newFirstName" value="#{userBean.newFirstName}"
+					required="false" requiredMessage="First Name required"
+					class="form-control" />
+				<h:message id="newFirstNameMessageID" for="newFirstName"
+					style="color.red"></h:message>
+
+				<p></p>
+				<h:commandButton value="Update First Name"
+					action="#{userBean.updateFirstName(userBean.newFirstName)}"
+					class="btn btn-primary"></h:commandButton>
+
+				<p></p>
+				<h:outputLabel for="newLastName" class="lebal" value="Last Name"
+					title="Last Name" style="font-family: Times New Roman"></h:outputLabel>
+				<h:inputText id="newLastName" value="#{userBean.newLastName}"
+					required="false" requiredMessage="Last Name required"
+					class="form-control" />
+				<h:message id="newLastNameMessageID" for="newLastName"
+					style="color.red"></h:message>
+				<p></p>
+
+				<h:commandButton value="Update Last Name"
+					action="#{userBean.updateLastName(userBean.newLastName)}"
+					class="btn btn-primary"></h:commandButton>
+
+				<p></p>
+				<h:outputLabel for="newEmailAddress" class="lebal" value="Email Address"
+					title="Email Address" style="font-family: Times New Roman"></h:outputLabel>
+				<h:inputText id="newEmailAddress" value="#{userBean.newEmailAddress}"
+					required="false" requiredMessage="Email Address required"
+					class="form-control" />
+				<h:message id="newEmailAddressMessageID" for="newEmailAddress" style="color.red"></h:message>
 				<p></p>
 
 
-				<h:commandButton value="Submit"
-					action="#{userBean.updateUser(userBean.newUsername)}" class="btn btn-primary"></h:commandButton>
+				<h:commandButton value="Update Email Address"
+					action="#{userBean.updateEmailAddress(userBean.newEmailAddress)}"
+					class="btn btn-primary"></h:commandButton>
+
+
+
 			</h:form>
 
 

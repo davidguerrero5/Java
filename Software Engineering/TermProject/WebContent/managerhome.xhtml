@@ -17,7 +17,6 @@
 </h:head>
 <h:body>
 	<div class="container">
-		<h:form>
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-lg-12"
 					style="width: 100%; text-align: right">
@@ -32,42 +31,7 @@
 							outcome="settings" style="text-align: center;" /></span>
 				</div>
 			</div>
-		</h:form>
 
-		<div class="well">
-
-			<!-- table format taken from: http://www.devmanuals.com/tutorials/java/jsf/database/viewData.html -->
-			<h1>All unregistered managers</h1>
-
-			<h:dataTable value="#{userBean.getUserList()}" var="u" border="1">
-
-				<h:column>
-					<f:facet name="header">User ID</f:facet>
-						#{u.userID}
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">First Name</f:facet>
-						#{u.firstName}
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">Last Name</f:facet>
-						#{u.lastName}
-				</h:column>
-
-				<h:column>
-					<f:facet name="header">Username</f:facet>
-						#{u.username}
-				</h:column>
-
-			</h:dataTable>
-
-			<h:form>
-				<h:commandButton value="Find Managers" class="btn btn-primary"
-					action="#{userBean.printResultSet}"></h:commandButton>
-			</h:form>
 		</div>
-	</div>
 </h:body>
 </html>
