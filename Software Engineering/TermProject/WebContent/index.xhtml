@@ -18,31 +18,40 @@
 <h:body>
 	<div class="container">
 
-		<h:form id="login" class="form-signin">
-			<h2 class="form-signin-heading">Term Project</h2>
-			<h:messages style="color: red;" />
-			<div class="form-group">
-				<h:outputLabel value="Username" />
-				<h:inputText id="username" class="form-control"
-					value="#{userBean.username}" required="true"
-					requiredMessage="Please enter Username" p:placeholder="Admin"
-					styleClass="form-control" />
-			</div>
+		<h:form class="form-signin">
+			<h1 align="center" style="font-family: Times New Roman">Stock
+				Trader 9000!!!</h1>
+			<p align="center" style="font-family: Times New Roman">By: David
+				Guerrero</p>
+			<p></p>
+			<h2 align="center" style="font-family: Times New Roman">Sign In!</h2>
 
-			<div class="form-group">
-				<h:outputLabel value="Password" />
-				<h:inputSecret id="password" value="#{userBean.password}"
-					required="true" requiredMessage="Please enter Password"
-					p:placeholder="Admin" styleClass="form-control" />
-			</div>
+			<h:outputLabel for="fname" class="lebal" value="Username"
+				title="First Name" style="font-family: Times New Roman"></h:outputLabel>
+			<h:inputText id="fname" value="#{userBean.username}" required="true"
+				requiredMessage="Username required" class="form-control" />
+			<h:message id="firstNameMessageID" for="fname" style="color.red"></h:message>
+			<p></p>
 
-			<div class="form-group text-center">
-				<!--<h:link value="Register Now" outcome="register" /><br />-->
-				<h:commandButton value="Login" action="#{userBean.validateUser}"
-					styleClass="btn btn-success btn-login-submit" />
-			</div>
-			<h:outputLabel styleClass="text-align:center;"
-				value="Please ensure database is loaded." />
+			<h:outputLabel for="fname" class="lebal" value="Password"
+				title="First Name" style="font-family: Times New Roman"></h:outputLabel>
+			<h:inputSecret id="pass" value="#{userBean.password}" required="true"
+				requiredMessage="Password required" class="form-control" />
+			<h:message id="passwordMessageID" for="pass" style="color.red"></h:message>
+			<p></p>
+
+			<h:outputLabel for="role" class="lebal" value="Role:" title="Role"
+				style="font-family: Times New Roman"></h:outputLabel>
+			<h:selectOneMenu value="#{userBean.role}">
+				<f:selectItem itemValue="user" itemLabel="user" />
+				<f:selectItem itemValue="manager" itemLabel="manager" />
+				<f:selectItem itemValue="admin" itemLabell="admin" />
+			</h:selectOneMenu>
+			<h:message id="roleMessageSignUpIDS" for="user" style="color.red"></h:message>
+			<p></p>
+
+			<h:commandButton value="Submit" class="btn btn-primary"
+				action="#{userBean.validateUser}"></h:commandButton>
 		</h:form>
 
 		<h:form class="form-signup">
@@ -55,6 +64,7 @@
 				class="form-control" />
 			<h:message id="firstNameMessageID" for="firstname" style="color.red"></h:message>
 			<p></p>
+
 			<h:outputLabel for="lname" class="lebal" value="Last Name"
 				title="first Name" style="font-family: Times New Roman"></h:outputLabel>
 			<h:inputText id="lname" value="#{registerBean.lastName}"
@@ -62,12 +72,14 @@
 				class="form-control" />
 			<h:message id="passwordMessageID" for="lname" style="color.red"></h:message>
 			<p></p>
+
 			<h:outputLabel for="email" class="lebal" value="Email Address"
 				title="Email ID" style="font-family: Times New Roman"></h:outputLabel>
 			<h:inputText id="email" value="#{registerBean.email}" required="true"
 				requiredMessage="Email Address required" class="form-control" />
 			<h:message id="emailMessageID" for="email" style="color.red"></h:message>
 			<p></p>
+
 			<h:outputLabel for="user" class="lebal" value="Username"
 				title="UserName" style="font-family: Times New Roman"></h:outputLabel>
 			<h:inputText id="user" value="#{registerBean.userName}"
@@ -75,6 +87,7 @@
 				class="form-control" />
 			<h:message id="usernameMessageSignUpIDS" for="user" style="color.red"></h:message>
 			<p></p>
+
 			<h:outputLabel for="pass" class="lebal" value="Password"
 				title="Password" style="font-family: Times New Roman"></h:outputLabel>
 			<h:inputSecret id="pass" value="#{registerBean.passWord}"
@@ -83,14 +96,14 @@
 			<h:message id="passwordMessageSignUpID" for="pass" style="color.red"></h:message>
 			<p></p>
 
-			 <h:outputLabel for="role" class="lebal" value="Role:"
-				title="Role" style="font-family: Times New Roman"></h:outputLabel>
+			<h:outputLabel for="role" class="lebal" value="Role:" title="Role"
+				style="font-family: Times New Roman"></h:outputLabel>
 			<h:selectOneMenu value="#{registerBean.role}">
 				<f:selectItem itemValue="user" itemLabel="user" />
 				<f:selectItem itemValue="manager" itemLabel="manager" />
 			</h:selectOneMenu>
 			<h:message id="roleMessageSignUpIDS" for="user" style="color.red"></h:message>
-			<p></p> 
+			<p></p>
 
 			<h:commandButton value="Submit" action="#{registerBean.registerUser}"
 				class="btn btn-primary"></h:commandButton>
