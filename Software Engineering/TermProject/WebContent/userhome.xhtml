@@ -24,6 +24,8 @@
 					<span style="float: left;"> <h:panelGroup
 							rendered="#{not empty userBean.username}">
 							<p>Welcome, #{userBean.username}. Your role is: #{userBean.role}. This is the user page. You can purchase stocks below.</p>
+							<p> Your balance is: $#{userBean.balance}. </p>
+							<p> Value of all of your current stocks: $#{userBean.purchasedStockSum} </p>
 						</h:panelGroup>
 					</span> <span style="float: right;"><h:link value="Logout"
 							outcome="index" style="text-align: right;" /></span>

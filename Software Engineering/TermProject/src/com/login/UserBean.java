@@ -23,12 +23,14 @@ public class UserBean {
 	private String password;
 	private String role;
 	private Integer uid;
+	private Double balance;
 	private String newFirstName;
 	private String newLastName;
 	private String newUsername;
 	private String newEmailAddress;
 	private String newPassword;
-
+	private Double purchasedStockSum;
+	
 	public String getUsername() {
 		return username;
 	}
@@ -93,12 +95,25 @@ public class UserBean {
 		this.newEmailAddress = newEmailAddress;
 	}
 
+	public Double getBalance() {
+		Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("balance");
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
 	public String getNewPassword() {
 		return newPassword;
 	}
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	public Double getPurchasedStockSum() {
+		return getPurchasedStocksSum();
 	}
 
 	public String validateUser() {
@@ -175,7 +190,7 @@ public class UserBean {
 		return "userhome";
 		// return "successreg?faces-redirect=true";
 	}
-	
+
 	public String updateFirstName(String newFirstName) {
 		Connection conn = null;
 		try {
@@ -205,7 +220,7 @@ public class UserBean {
 		return "userhome";
 		// return "successreg?faces-redirect=true";
 	}
-	
+
 	public String updateLastName(String newLastName) {
 		Connection conn = null;
 		try {
@@ -265,7 +280,41 @@ public class UserBean {
 		return "userhome";
 		// return "successreg?faces-redirect=true";
 	}
-	
+
+//	public String updateBalance() {
+//		Connection conn = null;
+//		try {
+//			conn = DataConnect.getConnection();
+//			String sql = "UPDATE users SET balance = ? WHERE uid = ?;";
+//			PreparedStatement st = conn.prepareStatement(sql);
+//
+//			// gets uid from session
+//			Integer uid = Integer.parseInt(
+//					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+//
+//			// gets balance from session
+//			Double balance = (Double) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+//					.get("balance");
+//
+//			st.setDouble(1, balance - total);
+//			st.setInt(2, uid);
+//
+//			// Execute the statement
+//			st.executeUpdate();
+//
+//		} catch (Exception e) {
+//			System.err.println("Exception: " + e.getMessage());
+//		} finally {
+//			try {
+//				conn.close();
+//			} catch (SQLException e) {
+//			}
+//		}
+//		System.out.println("You have successfully updated your balance!");
+//		return "userhome";
+//		// return "successreg?faces-redirect=true";
+//	}
+
 	public List<User> getManagerList() {
 		List<User> list = new ArrayList<User>();
 		PreparedStatement ps = null;
@@ -355,6 +404,50 @@ public class UserBean {
 			}
 		}
 		return list;
+	}
+
+	public Double getPurchasedStocksSum() {
+		List<Stock> list = new ArrayList<Stock>();
+		PreparedStatement ps = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		Double total = 0.0;
+
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "SELECT * from purchase where uid = ?";
+			ps = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			ps.setInt(1, uid);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Stock stock = new Stock();
+				stock.setStockSymbol(rs.getString("stock_symbol"));
+				stock.setQuantity(rs.getInt("qty"));
+				stock.setPrice(rs.getDouble("price"));
+				stock.setAmount(rs.getDouble("amt"));
+				list.add(stock);
+			}
+			for (Stock s : list) {
+				total = total + s.getAmount();
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				ps.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return total;
 	}
 
 	// logout event, invalidate session
