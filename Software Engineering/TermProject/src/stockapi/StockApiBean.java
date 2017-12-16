@@ -209,6 +209,33 @@ public class StockApiBean {
         }
         return "purchase";
     }
+    
+    public String addToWatchList(String symbol, double price) {
+        try {
+
+            Connection conn = DataConnect.getConnection();
+            Statement statement = conn.createStatement();
+            
+            //get userid
+            Integer uid = Integer.parseInt((String) FacesContext.getCurrentInstance()
+                    .getExternalContext()
+                    .getSessionMap().get("uid"));
+            
+            System.out.println(uid);
+            System.out.println("symbol:" + symbol);
+            System.out.println("price:" + price);
+            
+            statement.executeUpdate("INSERT INTO `watchlist` (`id`, `uid`, `stock_symbol`, `price`) "
+                    + "VALUES (NULL,'" + uid + "','" + symbol + "','" + price + "')");
+            
+            statement.close();
+            conn.close();
+            FacesContext.getCurrentInstance().addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "Your stocks have been added to your watch list!",""));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return "purchase";
+    }
 
     public void installAllTrustingManager() {
         TrustManager[] trustAllCerts;
@@ -283,7 +310,7 @@ public class StockApiBean {
                             + "<td>" + subJsonObj.getString("5. volume") + "</td>";
                     if (i == 0) {
                         String path = FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath();
-                        this.table2Markup += "<td><a class='btn btn-success' href='" + path + "/faces/purchase.xhtml?symbol=" + symbol + "&price=" + subJsonObj.getString("4. close") + "'>Buy Stock</a></td>";
+                        this.table2Markup += "<td><a class='btn btn-success' href='" + path + "/faces/purchase.xhtml?symbol=" + symbol + "&price=" + subJsonObj.getString("4. close") + "'>View Stock</a></td>";
                     }
                     this.table2Markup += "</tr>";
                     i++;
