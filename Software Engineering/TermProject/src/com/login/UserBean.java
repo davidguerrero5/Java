@@ -408,6 +408,42 @@ public class UserBean {
 		}
 		return list;
 	}
+	
+	public List<Stock> getWatchList() {
+		List<Stock> list = new ArrayList<Stock>();
+		PreparedStatement ps = null;
+		Connection conn = null;
+		ResultSet rs = null;
+		try {
+			conn = DataConnect.getConnection();
+			String sql = "SELECT * from watchlist where uid = ?";
+			ps = conn.prepareStatement(sql);
+
+			// gets uid
+			Integer uid = Integer.parseInt(
+					(String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("uid"));
+
+			ps.setInt(1, uid);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				Stock stock = new Stock();
+				stock.setStockSymbol(rs.getString("stock_symbol"));
+				stock.setPrice(rs.getDouble("price"));
+				list.add(stock);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+				ps.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
 
 	public Double getPurchasedStocksSum() {
 		List<Stock> list = new ArrayList<Stock>();
