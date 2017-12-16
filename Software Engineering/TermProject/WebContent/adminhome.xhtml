@@ -23,9 +23,8 @@
 					style="width: 100%; text-align: right">
 					<span style="float: left;"> <h:panelGroup
 							rendered="#{not empty userBean.username}">
-							<p>Welcome, #{userBean.username}. Your role is:
-								#{userBean.role}. This is the Admin page. You can see all
-								manager requests below.</p>
+							<p>Welcome, #{userBean.username}. This is the Admin page. You
+								can see all manager requests below.</p>
 						</h:panelGroup>
 					</span> <span style="float: right;"><h:link value="Logout"
 							outcome="index" style="text-align: right;" /></span> <span
@@ -67,8 +66,8 @@
 			<h:form>
 				<h:commandButton value="Validate Manager" class="btn btn-primary"
 					action="#{userBean.validateManagers}"></h:commandButton>
-					
-					<h:commandButton value="Deny Manager" class="btn btn-danger"
+
+				<h:commandButton value="Deny Manager" class="btn btn-danger"
 					action="#{userBean.denyManagers}"></h:commandButton>
 			</h:form>
 		</div>
