@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		<div class="currentstocks">
-			<h2>All Purchased Stocks</h2>
+			<h2>Purchased Stocks for Client</h2>
 			<h:form>
 				<h:dataTable value="#{userBean.getPurchasedStocks()}" var="stock"
 					border="1">
@@ -59,12 +59,6 @@
 						<f:facet name="header">Amount Paid (USD)</f:facet>
 						#{stock.amount}
 				</h:column>
-
-					<!-- 					<h:column>
-						<f:facet name="header">Do Something</f:facet>
-						<h:commandButton value="Purchase"
-							action="#{stockApiBean.purchaseStock()}" />
-					</h:column> -->
 
 				</h:dataTable>
 			</h:form>
